@@ -1,0 +1,7 @@
+1. Created Models
+2. Created required DTOs
+3. Created controller
+4. created service layer
+5. Implemented Rest Template
+6. Invoked call to 3rd party
+7. Returned response from controller
