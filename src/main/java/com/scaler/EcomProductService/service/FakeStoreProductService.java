@@ -13,6 +13,7 @@ import java.util.List;
 import static com.scaler.EcomProductService.mapper.ProductMapper.fakeStoreProductResponseToProductResponse;
 import static com.scaler.EcomProductService.mapper.ProductMapper.productRequestToFakeStoreProductRequest;
 import static com.scaler.EcomProductService.util.ProductUtils.isNull;
+import java.util.UUID;
 
 @Service("FakeStoreProductService")
 public class FakeStoreProductService implements ProductService {
@@ -35,7 +36,7 @@ public class FakeStoreProductService implements ProductService {
         return fakeStoreProductResponseToProductResponse(fakeStoreProductResponseDTO);
     }
     @Override
-    public ProductResponseDTO getProductById(int id) throws ProductNotFoundException{
+    public ProductResponseDTO getProductById(UUID id) throws ProductNotFoundException{
 
      /*   String productResponseList = "https://fakestoreapi.com/products/" + id;
         RestTemplate restTemplate = restTemplateBuilder.build(); // Build the object that will be interacting with the web and supporting http methods like GET, PUT, POST etc
@@ -88,6 +89,16 @@ public class FakeStoreProductService implements ProductService {
 
     @Override
     public Product updateProduct(int id) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDTO getProductByTitle(String title) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDTO getProductByTitleAndDescription(String title, String description) {
         return null;
     }
 }

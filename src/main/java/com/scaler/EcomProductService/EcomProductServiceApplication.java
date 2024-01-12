@@ -11,6 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EcomProductServiceApplication implements CommandLineRunner {
 
+	 // CommandLineRunner Interface has a run method. Interface used to indicate that a bean should run when it is contained within a SpringApplication.
+	 // Multiple CommandLineRunner beans can be defined within the same application context and can be ordered using the Ordered interface or @Order annotation.
+	 // If you need access to ApplicationArguments instead of the raw String array consider using ApplicationRunner.
 	InitServiceImpl initService;
 
 	@Autowired

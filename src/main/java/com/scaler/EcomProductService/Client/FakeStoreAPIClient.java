@@ -3,14 +3,13 @@ package com.scaler.EcomProductService.Client;
 
 import com.scaler.EcomProductService.dto.FakeStoreProductRequestDTO;
 import com.scaler.EcomProductService.dto.FakeStoreProductResponseDTO;
-import com.scaler.EcomProductService.dto.ProductRequestDTO;
-import com.scaler.EcomProductService.dto.ProductResponseDTO;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
 
@@ -31,7 +30,7 @@ public class FakeStoreAPIClient {
         return productResponse.getBody();
     }
 
-    public FakeStoreProductResponseDTO getProductById(int id){
+    public FakeStoreProductResponseDTO getProductById(UUID id){
         String getProductByUrlId = "https://fakestoreapi.com/products/" + id;
         RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<FakeStoreProductResponseDTO> productResponse =
