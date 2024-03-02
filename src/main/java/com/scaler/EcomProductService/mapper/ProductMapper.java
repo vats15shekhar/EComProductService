@@ -4,7 +4,6 @@ import com.scaler.EcomProductService.dto.*;
 import com.scaler.EcomProductService.model.Product;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ProductMapper {
 

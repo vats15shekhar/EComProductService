@@ -1,9 +1,5 @@
 package com.scaler.EcomProductService.service;
-import java.util.Optional;
-import java.util.UUID;
 
-
-import com.scaler.EcomProductService.dto.FakeStoreProductResponseDTO;
 import com.scaler.EcomProductService.dto.ProductListResponseDTO;
 import com.scaler.EcomProductService.dto.ProductRequestDTO;
 import com.scaler.EcomProductService.dto.ProductResponseDTO;
@@ -14,10 +10,7 @@ import com.scaler.EcomProductService.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import static com.scaler.EcomProductService.mapper.ProductMapper.fakeStoreProductResponseToProductResponse;
-import static com.scaler.EcomProductService.mapper.ProductMapper.productRequestToFakeStoreProductRequest;
-import static com.scaler.EcomProductService.util.ProductUtils.isNull;
+import java.util.UUID;
 
 @Service("NormalProductService")
 public class ProductServiceImpl implements ProductService {
@@ -65,7 +58,7 @@ public class ProductServiceImpl implements ProductService {
 
     // These are all custom methods that we are adding in order to perform a certain operation that JPA does not internally provide
     @Override
-    public ProductResponseDTO getProductByTitle(String title) {
+    public ProductResponseDTO getProductByTitle(String title) throws ProductNotFoundException {
 
         Product product = productRepository.findByTitle(title);
 

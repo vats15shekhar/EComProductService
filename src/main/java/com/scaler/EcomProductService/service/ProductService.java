@@ -6,9 +6,8 @@ import com.scaler.EcomProductService.dto.ProductRequestDTO;
 import com.scaler.EcomProductService.dto.ProductResponseDTO;
 import com.scaler.EcomProductService.exception.ProductNotFoundException;
 import com.scaler.EcomProductService.model.Product;
-import java.util.UUID;
 
-import java.util.List;
+import java.util.UUID;
 
 public interface ProductService {
 
@@ -19,7 +18,7 @@ public interface ProductService {
     Boolean deleteProduct(int id) throws ProductNotFoundException;
     Product updateProduct(int id);
 
-    ProductResponseDTO getProductByTitle(String title);
+    ProductResponseDTO getProductByTitle(String title) throws ProductNotFoundException;
 
     ProductResponseDTO getProductByTitleAndDescription(String title, String description);
 
