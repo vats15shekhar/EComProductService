@@ -3,6 +3,7 @@ package com.scaler.EcomProductService.service;
 import com.scaler.EcomProductService.dto.ProductListResponseDTO;
 import com.scaler.EcomProductService.dto.ProductRequestDTO;
 import com.scaler.EcomProductService.dto.ProductResponseDTO;
+import com.scaler.EcomProductService.exception.InvalidTitleException;
 import com.scaler.EcomProductService.exception.ProductNotFoundException;
 import com.scaler.EcomProductService.mapper.ProductMapper;
 import com.scaler.EcomProductService.model.Product;
@@ -60,8 +61,15 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponseDTO getProductByTitle(String title) throws ProductNotFoundException {
 
+        if(title == null || title.isEmpty())
+        {
+          throw new InvalidTitleException("Title is blank");
+        }
         Product product = productRepository.findByTitle(title);
-
+       if(product == null)
+       {
+           throw new ProductNotFoundException("There is no title found with the given name");
+       }
         ProductResponseDTO productResponseDTO = ProductMapper.convertProductToProductResponseDTO(product);
         return productResponseDTO;
     }
